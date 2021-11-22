@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Azizbek</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Azizbek</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Azizbek</span><br> Web Developer</h1>
+
+                    <a href="#about"class="button">About</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/azizbek-akbarov-586b57216" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/azizbek_akbarov98/?hl=ru" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://github.com/Azizbekbackend" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                </div>
+
+                <div class="home__img">    
+                    <img src="{% static 'assets/img/azizbek2.jpg' %}" alt="">
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="{% static 'assets/img/azizbek.png' %}" alt="">
+                    </div>
+                    
+                    <div>
+                        {% for about in about %}
+                            <h2 class="about__subtitle">{{ about.career }}</h2>
+                            <p class="about__text">{{ about.description }}</p>           
+                        {% endfor %}
+                        <div class="home__social" style="margin-top: 60px;">
+                            <a href="https://www.linkedin.com/in/azizbek-akbarov-586b57216" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                            <a href="https://www.facebook.com/azizbek.akbarov.1293" class="home__social-icon"><i class='bx bxl-facebook' ></i></a>
+                            <a href="https://www.instagram.com/azizbek_akbarov98/?hl=ru" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+                            <a href="https://t.me/bek_akbarov98" class="home__social-icon"><i class='bx bxl-telegram' ></i></a>
+                            <a href="https://github.com/Azizbekbackend" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                        </div>
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        {% for category in categories %}
+                            <h2 class="skills__subtitle">{{ category.name }}</h2>
+                            {% for skill in category.skills_set.all %}
+                                <div class="skills__data">
+                                    <div class="skills__names">
+                                        <span class="skills__name">{{ skill.skill_name }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div>              
+                        <img src="{% static 'assets/img/work3.jpg' %}" alt="" class="skills__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Work</h2>
+
+                <div class="work__container bd-grid">
+                    {% for work in works %}
+                    <div class="work__img">
+                        <a href="{{ work.link }}" target="blank">
+                            <img src="{{ work.image.url }}" alt="Work Name">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <input type="button" value="Enviar" class="contact__button button">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Azizbek</p>
+            <div class="footer__social">
+                <a href="https://www.facebook.com/azizbek.akbarov.1293" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.instagram.com/azizbek_akbarov98/?hl=ru" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://t.me/bek_akbarov98" class="footer__icon"><i class='bx bxl-telegram' ></i></a>
+            </div>
+            <p>&#169; 2021 copyright all right reserved</p>
+        </footer>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
