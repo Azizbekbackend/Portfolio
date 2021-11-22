@@ -65,19 +65,20 @@
                         <img src="{% static 'assets/img/azizbek.png' %}" alt="">
                     </div>
                     
-                    <div>
+                        <div>
                         {% for about in about %}
                             <h2 class="about__subtitle">{{ about.career }}</h2>
                             <p class="about__text">{{ about.description }}</p>           
-                        {% endfor %}
-                        <div class="home__social" style="margin-top: 60px;">
-                            <a href="https://www.linkedin.com/in/azizbek-akbarov-586b57216" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                            <a href="https://www.facebook.com/azizbek.akbarov.1293" class="home__social-icon"><i class='bx bxl-facebook' ></i></a>
-                            <a href="https://www.instagram.com/azizbek_akbarov98/?hl=ru" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
-                            <a href="https://t.me/bek_akbarov98" class="home__social-icon"><i class='bx bxl-telegram' ></i></a>
-                            <a href="https://github.com/Azizbekbackend" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                        </div>
-                    </div>                                   
+                            <div class="home__social" style="margin-top: 60px;">
+                                <a href="https://www.linkedin.com/in/azizbek-akbarov-586b57216" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.facebook.com/azizbek.akbarov.1293" class="home__social-icon"><i class='bx bxl-facebook' ></i></a>
+                                <a href="https://www.instagram.com/azizbek_akbarov98/?hl=ru" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://t.me/bek_akbarov98" class="home__social-icon"><i class='bx bxl-telegram' ></i></a>
+                                <a href="https://github.com/Azizbekbackend" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                            </div>
+                            <a href="{{ about.resume.url }}" download="{{ about.resume.url }}">Download CV</a>
+                            {% endfor %}
+                        </div>                                   
                 </div>
             </section>
 
